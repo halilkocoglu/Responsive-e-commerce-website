@@ -5,9 +5,29 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
+
+  
+
+
+  /* ff 3.6+ 
+  background:-moz-radial-gradient(circle at 0% 0%, rgba(64, 55, 110, 1) 0%, rgba(54, 133, 181, 1) 50%, rgba(205, 230, 245, 1) 100%);
+
+  background:-webkit-radial-gradient(circle at 0% 0%, rgba(64, 55, 110, 1) 0%, rgba(54, 133, 181, 1) 50%, rgba(205, 230, 245, 1) 100%);
+
+  background:-o-radial-gradient(circle at 0% 0%, rgba(64, 55, 110, 1) 0%, rgba(54, 133, 181, 1) 50%, rgba(205, 230, 245, 1) 100%);
+
+  background:-ms-radial-gradient(circle at 0% 0%, rgba(64, 55, 110, 1) 0%, rgba(54, 133, 181, 1) 50%, rgba(205, 230, 245, 1) 100%);
+
+  background:radial-gradient(circle at 0% 0%, rgba(64, 55, 110, 1) 0%, rgba(54, 133, 181, 1) 50%, rgba(205, 230, 245, 1) 100%);
+  */
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
