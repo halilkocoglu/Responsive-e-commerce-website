@@ -7,9 +7,7 @@ function Products() {
     const {productsData} = useProductsContext()
   return (
     <div className='products-container'>
-        Categories
-
-       <Card data={productsData}/>
+      <Card data={productsData}/>
     </div>
   )
 }

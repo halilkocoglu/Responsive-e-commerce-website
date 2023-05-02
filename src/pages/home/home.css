@@ -3,3 +3,8 @@
     flex-direction: column;
     color: #D8DCFF;
 }
+.home-container_main {
+    display: flex ;
+    flex-direction: row;
+    align-items: flex-start;
+}

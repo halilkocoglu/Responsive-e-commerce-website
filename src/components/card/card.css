@@ -1,7 +1,7 @@
 .card-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    width: 80%;
+    width: 95%;
     /* overflow: hidden; */
 }
 .card {
