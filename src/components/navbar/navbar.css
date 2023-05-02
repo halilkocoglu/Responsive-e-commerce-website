@@ -1,0 +1,31 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #919191;
+}
+.navbar a {
+    text-decoration: none;
+    cursor: pointer;
+    color: mintcream;
+}
+.left , .right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2rem;
+}
+.left .logo a, 
+.right .basket-logo a {
+    display: flex;
+    margin-right: 2rem;
+    font-weight: bold;
+    font-size: 2rem;
+
+}
+.right a {
+    color: #3E3733;
+    font-size: large;
+    font-weight: 700;
+}
