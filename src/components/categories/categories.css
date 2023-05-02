@@ -18,3 +18,15 @@
     text-decoration: none;
     color: #fff;
 }
+
+
+@media screen and (max-width: 1160px) {
+    .categories-container{
+        margin: 5rem 0 0 2rem ;
+    }
+}
+@media screen and (max-width: 700px) {
+    .categories-container {
+        display: none;
+    }
+}

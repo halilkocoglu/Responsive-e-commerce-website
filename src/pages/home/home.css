@@ -8,3 +8,18 @@
     flex-direction: row;
     align-items: flex-start;
 }
+
+@media screen and (max-width: 550px) {
+    .home-container_main{
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+@media screen and (max-width: 700px) {
+    .home-container_main{
+        align-items: center;
+        justify-content: center;
+    }
+
+}
