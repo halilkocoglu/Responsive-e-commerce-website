@@ -1,0 +1,24 @@
+.categoryList-container {
+    display: flex;
+    flex-direction: column;
+}
+.categories {
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+    color: #fff;
+    margin: auto;
+    align-items: flex-start;
+    width: 50%;
+}
+.categories-list  {
+    width: 100%;
+    margin: 0.5rem;
+    border-bottom: 1px solid #333;
+}
+.categories-list a {
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #fff;
+}

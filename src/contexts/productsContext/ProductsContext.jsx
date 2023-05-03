@@ -9,7 +9,6 @@ const ProductsProvider = ({children}) => {
     const [productsData, setProductsData] = useState([]);
     const [productsCategories, setProductsCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
-
     useEffect( () => {
         fetchAllProducts(setProductsData)
         fetchProductsCategories(setProductsCategories)

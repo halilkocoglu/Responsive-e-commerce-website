@@ -25,7 +25,7 @@
 
 }
 .right a {
-    color: #3E3733;
+    color: #fff;
     font-size: large;
     font-weight: 700;
 }
@@ -36,6 +36,44 @@
     padding-right:1rem ;
 }
 
+@media screen and (max-width: 700px) {
+    .signup  a {
+        display: none;
+    }
+    .left .logo a {
+        font-size: medium;
+        font-weight: 500;
+    }
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 1rem;
+    }
+    .menu a {
+        color: #fff;
+        font-size: larger;
+        font-weight: 100;
+    }
+    .menu .menu-bar {
+        flex-direction: column;
+        margin: 1.5rem 1rem 0 0;
+        width: auto;
+        border-radius: 5px;
+        padding: 1rem;
+        position: absolute;
+        background-color: #333;
+        color: #fff;
+        right: 0;
+    }
+    .menu .basket-logo a{
+        display: none;
+    } 
+    .display-none {
+        display: none;
+    }
+
+}
 
 @media screen and (max-width: 550px) {
     .products,
