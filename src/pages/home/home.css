@@ -3,20 +3,28 @@
     flex-direction: column;
     color: #D8DCFF;
 }
+.loading {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    color: #fff;
+    min-height: 100vh;
+}
 .home-container_main {
     display: flex ;
     flex-direction: row;
     align-items: flex-start;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 700px) {
     .home-container_main{
         align-items: center;
         justify-content: center;
     }
 
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 550px) {
     .home-container_main{
         align-items: center;
         justify-content: center;

@@ -52,7 +52,7 @@
     }
     .menu a {
         color: #fff;
-        font-size: larger;
+        font-size: small;
         font-weight: 100;
     }
     .menu .menu-bar {
@@ -65,6 +65,9 @@
         background-color: #333;
         color: #fff;
         right: 0;
+    }
+    .basket-logo-menu {
+        display: none;
     }
     .menu .basket-logo a{
         display: none;
@@ -96,10 +99,10 @@
     }
     .menu .menu-bar {
         flex-direction: column;
-        margin: 1.5rem 1rem 0 0;
+        margin: 1.5rem 1rem  0;
         width: auto;
         border-radius: 5px;
-        padding: 1rem;
+        padding: 0.7rem 0.7rem 0.7rem 0.7rem;
         position: absolute;
         background-color: #333;
         color: #fff;

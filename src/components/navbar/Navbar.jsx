@@ -50,7 +50,7 @@ function Navbar() {
                         onClick={() => setSelectedCategory(null)}
                         to={"/"}>Home</Link>
                     </div>
-                    <div className='basket-logo menu'>
+                    <div className='basket-logo-menu menu'>
                         <Link >
                         <span className='padding_right'>Basket</span> <SlBasket />
                         </Link>
