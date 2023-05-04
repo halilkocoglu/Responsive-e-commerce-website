@@ -36,6 +36,8 @@ function Navbar() {
                 </Link>
             </div>
             <div className='signup'><Link to={"/signup"}>Login</Link></div>
+
+            {/* 3-dot menu */}
             <div className='menu'>
                 <Link onClick={() => {
                     isActive ? setIsActive(false) : setIsActive(true)
@@ -44,20 +46,22 @@ function Navbar() {
                 </Link>
                 <div className={ `${menuStyle} menu-bar` }>
                     <div className='menu'>
-                        <Link to={"/"}>Home</Link>
+                        <Link 
+                        onClick={() => setSelectedCategory(null)}
+                        to={"/"}>Home</Link>
                     </div>
-                    <div className='basket-logo menu'>
+                    <div className='basket-logo-menu menu'>
                         <Link >
                         <span className='padding_right'>Basket</span> <SlBasket />
                         </Link>
                     </div>
                     <div className='menu'>
-                        <Link >Categories</Link>
+                        <Link to={"/categories"} >Categories</Link>
                     </div>
                     <div className='menu'>
                         <Link >Profile</Link>
                     </div>
-                    <div className='signup menu'>
+                    <div className='signup-menu menu'>
                         <Link to={"/signup"}>Login</Link>
                     </div>
                 </div>
