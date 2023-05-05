@@ -14,6 +14,16 @@
     border-radius: 5px;
     padding: 2rem;
 }
+
+.signup-error {
+    border-radius: 5px;
+    color: #fff;
+    text-transform: capitalize;
+    background-color: rgba(250, 0, 0, 0.65);
+    line-height: 3rem;
+    padding: 0 1rem;
+}
+
 .signup-container .signup-form div {
     padding-bottom: 1rem;
 }
@@ -74,5 +84,8 @@
 @media screen and (max-width: 550px) {
     .signup-content {
         width: 200px;
+    }
+    .signup-error {
+        line-height: 2.5rem;
     }
 }

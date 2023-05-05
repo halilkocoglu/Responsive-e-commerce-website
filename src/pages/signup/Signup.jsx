@@ -4,9 +4,13 @@ import Navbar from '../../components/navbar/Navbar'
 import { Link } from 'react-router-dom'
 import { useFormik } from 'formik'
 import validationSchema from './validations'
+import { fetchRegister } from '../../API'
+import { useAuthContext } from '../../contexts/authContext/AuthContext'
+
+
 
 function Signup() {
-
+  const { login } = useAuthContext()
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -15,7 +19,19 @@ function Signup() {
     },
     validationSchema,
     onSubmit : async (values, bag) => {
-      console.log(values);
+    // Post method Adding a new user will not add it into the server.
+    // It will simulate a POST request and will return the new created user with a new id
+      try {
+        // you can see the response on console
+        const registerResponse = await fetchRegister({email: values.email, password: values.password})
+        console.log(registerResponse);
+        login(registerResponse)
+      } 
+      // Normally this block will catch any errors if the user has already been registered
+      // But in this case, no error will come up cause of we just simulate to 'add a new  user'
+      catch (error) {
+        bag.setErrors( {general: error.response.data.message})
+      }
     } 
   })
 
@@ -23,6 +39,17 @@ function Signup() {
     <div className='signup-container'>
       <Navbar/>
       <div className='signup-content'>
+        <div className="signup-error">
+          { 
+            formik.errors.general && (
+              <div className="error">
+                {
+                  formik.errors.general
+                }
+              </div>
+            )
+          }
+        </div>
         <form 
         className='signup-form'
         onSubmit={formik.handleSubmit}

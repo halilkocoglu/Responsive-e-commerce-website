@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom'
 import { SlBasket } from "react-icons/sl";
 import { useProductsContext } from '../../contexts/productsContext/ProductsContext';
 import { AiOutlineMenuFold } from "react-icons/ai";
+import { useAuthContext } from '../../contexts/authContext/AuthContext';
 
 function Navbar() {
     const [isActive , setIsActive] = useState(false);
     const [menuStyle, setMenuStyle] = useState("");
     const { setSelectedCategory } = useProductsContext();
+    const { isLoggedIn } = useAuthContext()
+    console.log(isLoggedIn);
     useEffect( () => {
         isActive ? setMenuStyle("") : setMenuStyle("display-none")
         
@@ -35,8 +38,22 @@ function Navbar() {
                     <SlBasket />
                 </Link>
             </div>
-            <div className='signup padding_right'><Link>Login</Link></div>
-            <div className='signup'><Link to={"/signup"}>Register</Link></div>
+            {
+                !isLoggedIn && (
+                    <>
+                        <div className='signup padding_right'><Link>Login</Link></div>
+                        <div className='signup'><Link to={"/signup"}>Register</Link></div>
+                    </>
+                )
+            }
+            {
+                isLoggedIn && (
+                    <>
+                        <div className='signup padding_right'><Link>Profile</Link></div>
+                        <div className='signup padding_right'><Link>Logout</Link></div>
+                    </>
+                )
+            }
 
             {/* 3-dot menu */}
 
@@ -60,15 +77,30 @@ function Navbar() {
                     <div className='menu'>
                         <Link to={"/categories"} >Categories</Link>
                     </div>
-                    <div className='menu'>
-                        <Link >Profile</Link>
-                    </div>
-                    <div className='signup-menu menu'>
-                        <Link to={"/signup"}>Login</Link>
-                    </div>
-                    <div className='signup-menu menu'>
-                        <Link to={"/signup"}>Register</Link>
-                    </div>
+                    {
+                        isLoggedIn && (
+                            <>
+                                <div className='menu'>
+                                    <Link >Profile</Link>
+                                </div>
+                                <div className='menu'>
+                                    <Link >Log out</Link>
+                                </div>
+                            </>
+                        )
+                    }
+                    {
+                        !isLoggedIn && (
+                            <>
+                                <div className='signup-menu menu'>
+                                    <Link>Login</Link>
+                                </div>
+                                <div className='signup-menu menu'>
+                                    <Link to={"/signup"}>Register</Link>
+                                </div>
+                            </>
+                        )
+                    }
                 </div>
             </div>
         </div>
