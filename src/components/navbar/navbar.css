@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid;
+    margin-bottom: 2rem;
 }
 .navbar a {
     text-decoration: none;

@@ -35,9 +35,11 @@ function Navbar() {
                     <SlBasket />
                 </Link>
             </div>
-            <div className='signup'><Link to={"/signup"}>Login</Link></div>
+            <div className='signup padding_right'><Link>Login</Link></div>
+            <div className='signup'><Link to={"/signup"}>Register</Link></div>
 
             {/* 3-dot menu */}
+
             <div className='menu'>
                 <Link onClick={() => {
                     isActive ? setIsActive(false) : setIsActive(true)
@@ -63,6 +65,9 @@ function Navbar() {
                     </div>
                     <div className='signup-menu menu'>
                         <Link to={"/signup"}>Login</Link>
+                    </div>
+                    <div className='signup-menu menu'>
+                        <Link to={"/signup"}>Register</Link>
                     </div>
                 </div>
             </div>
