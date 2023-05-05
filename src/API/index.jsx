@@ -13,6 +13,11 @@ const fetchProductsCategories = (callback) => {
     .then(data => callback(data))
 } 
 
+const fetchRegister = async (input) => {
+    const {data} = await axios.post('https://dummyjson.com/users/add',input)
+    return data;
+}
+
 
 
 
@@ -20,4 +25,5 @@ const fetchProductsCategories = (callback) => {
 export {
     fetchAllProducts,
     fetchProductsCategories,
+    fetchRegister,
 }

@@ -4,14 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+// Contexts
 import { ProductsProvider } from "./contexts/productsContext/ProductsContext";
+import { AuthProvider } from "./contexts/authContext/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.Fragment>
     <BrowserRouter>
       <ProductsProvider>
-        <App />
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </ProductsProvider>
     </BrowserRouter>
   </React.Fragment>
