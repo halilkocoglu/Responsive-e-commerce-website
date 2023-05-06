@@ -1,0 +1,100 @@
+.profile-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    min-height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70%;
+    height: auto;
+    background-color: aliceblue;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.profile-section_left {
+    margin-right: 1rem;
+}
+
+
+.profile-section_left img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.profile-section_right div {
+    margin: 1rem 0;
+}
+
+.default-links  {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.default-links a {
+    text-decoration: none;
+    width: 100%;
+    margin: 1rem 0;
+    background-color: rgba(250, 0, 0, 0.8);
+    border-radius: 5px;
+    color: #fff;
+    line-height: 2rem;
+    padding: 1rem;
+}
+
+.default-links a:hover {
+    background-color: #333;
+    opacity: 0.8;
+}
+
+
+@media screen and (max-width: 700px) {
+    .profile-section_left img {
+        width: 120px;
+        border-radius: 50%;
+    }
+    .default-links a {
+        width: 95%;
+        margin: 0.5rem 0;
+        line-height: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .profile-section  {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        padding: 0.5rem;
+    }
+
+    .profile-section_left img {
+        width: 100px;
+        border-radius: 50%;
+    }
+
+    .default-links a {
+        width: 90%;
+        margin: 0.5rem 0;
+        line-height: 1rem;
+        padding: 0.5rem;
+    }
+    .profile-section_left {
+        margin: 0.5rem 0;
+    }
+}

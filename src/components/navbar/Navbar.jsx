@@ -10,8 +10,8 @@ function Navbar() {
     const [isActive , setIsActive] = useState(false);
     const [menuStyle, setMenuStyle] = useState("");
     const { setSelectedCategory } = useProductsContext();
-    const { isLoggedIn } = useAuthContext()
-    console.log(isLoggedIn);
+    const { isLoggedIn, logout } = useAuthContext()
+    // console.log(isLoggedIn);
     useEffect( () => {
         isActive ? setMenuStyle("") : setMenuStyle("display-none")
         
@@ -41,7 +41,9 @@ function Navbar() {
             {
                 !isLoggedIn && (
                     <>
-                        <div className='signup padding_right'><Link>Login</Link></div>
+                        <div className='signup padding_right'>
+                            <Link to={"/login"}>Login</Link>
+                        </div>
                         <div className='signup'><Link to={"/signup"}>Register</Link></div>
                     </>
                 )
@@ -49,8 +51,15 @@ function Navbar() {
             {
                 isLoggedIn && (
                     <>
-                        <div className='signup padding_right'><Link>Profile</Link></div>
-                        <div className='signup padding_right'><Link>Logout</Link></div>
+                        <div className='signup padding_right'>
+                            <Link to={"/profile"}>Profile</Link>
+                        </div>
+                        <div className='signup padding_right'>
+                            <Link
+                            to={"/"}
+                            onClick={() => logout()}
+                            >Logout</Link>
+                            </div>
                     </>
                 )
             }
@@ -81,10 +90,19 @@ function Navbar() {
                         isLoggedIn && (
                             <>
                                 <div className='menu'>
-                                    <Link >Profile</Link>
+                                    <Link
+                                    to={"/profile"}
+                                    >
+                                        Profile
+                                    </Link>
                                 </div>
                                 <div className='menu'>
-                                    <Link >Log out</Link>
+                                    <Link 
+                                        onClick={() => logout()}
+                                        to={"/"}
+                                    >
+                                        Log out
+                                    </Link>
                                 </div>
                             </>
                         )
@@ -93,7 +111,7 @@ function Navbar() {
                         !isLoggedIn && (
                             <>
                                 <div className='signup-menu menu'>
-                                    <Link>Login</Link>
+                                    <Link to={"/login"}>Login</Link>
                                 </div>
                                 <div className='signup-menu menu'>
                                     <Link to={"/signup"}>Register</Link>
