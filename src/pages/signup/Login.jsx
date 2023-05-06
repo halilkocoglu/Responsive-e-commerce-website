@@ -9,13 +9,12 @@ import { useAuthContext } from '../../contexts/authContext/AuthContext'
 
 
 
-function Signup() {
+function Login() {
   const { login } = useAuthContext()
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
-      passwordConfirm: "",
     },
     validationSchema,
     onSubmit : async (values, bag) => {
@@ -78,27 +77,15 @@ function Signup() {
                 value={formik.values.password}
                 />
             </div>
-            <div>
-                <div>Password Confirm</div>
-                <input 
-                className= {`${formik.touched.passwordConfirm && formik.errors.passwordConfirm 
-                  ? "border-red" :""}`}
-                name='passwordConfirm'
-                type="password" 
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.passwordConfirm}
-                />
-            </div>
             <div className='signup-button'>
-              <button type='submit'>Sign Up</button>
+              <button type='submit'>Login</button>
             </div>
         </form>
-            <Link to={"/login"}>You already have an account? Sign in.</Link>
+            <Link to={"/signup"}>You do not have an account? Sign Up.</Link>
       </div>
 
     </div>
   )
 }
 
-export default Signup
+export default Login
