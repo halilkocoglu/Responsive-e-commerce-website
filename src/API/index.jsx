@@ -18,6 +18,11 @@ const fetchRegister = async (input) => {
     return data;
 }
 
+const fetchLogin = async (input) => {
+    const {data} = await axios.post('https://dummyjson.com/auth/login',input)
+    return data;
+} 
+
 
 
 
@@ -26,4 +31,5 @@ export {
     fetchAllProducts,
     fetchProductsCategories,
     fetchRegister,
+    fetchLogin,
 }

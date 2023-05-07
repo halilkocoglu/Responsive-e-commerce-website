@@ -1,7 +1,7 @@
 import React from 'react'
 import  "./signup.css"
 import Navbar from '../../components/navbar/Navbar'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import validationSchema from './validations'
 import { fetchRegister } from '../../API'
@@ -9,7 +9,8 @@ import { useAuthContext } from '../../contexts/authContext/AuthContext'
 
 
 
-function Signup() {
+function Signup({history}) {
+  const navigate = useNavigate()
   const { login } = useAuthContext()
   const formik = useFormik({
     initialValues: {
@@ -26,6 +27,7 @@ function Signup() {
         const registerResponse = await fetchRegister({email: values.email, password: values.password})
         console.log(registerResponse);
         login(registerResponse)
+        navigate('/')
       } 
       // Normally this block will catch any errors if the user has already been registered
       // But in this case, no error will come up cause of we just simulate to 'add a new  user'
