@@ -56,7 +56,7 @@ function Login() {
         onSubmit={formik.handleSubmit}
         >
             <div>
-                <div>E-mail</div>
+                <div>Username</div>
                 <input 
                 className= {`${formik.touched.username && formik.errors.username 
                   ? "border-red" :""}`}
