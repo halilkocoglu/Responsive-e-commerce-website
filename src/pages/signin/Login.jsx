@@ -1,19 +1,20 @@
 import React from 'react'
-import  "./signup.css"
+import  "../signup/signup.css"
 import Navbar from '../../components/navbar/Navbar'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import validationSchema from './validations'
-import { fetchRegister } from '../../API'
+import { fetchLogin } from '../../API'
 import { useAuthContext } from '../../contexts/authContext/AuthContext'
 
 
 
 function Login() {
+  const navigate = useNavigate()
   const { login } = useAuthContext()
   const formik = useFormik({
     initialValues: {
-      email: "",
+      username: "",
       password: "",
     },
     validationSchema,
@@ -22,9 +23,10 @@ function Login() {
     // It will simulate a POST request and will return the new created user with a new id
       try {
         // you can see the response on console
-        const registerResponse = await fetchRegister({email: values.email, password: values.password})
-        console.log(registerResponse);
-        login(registerResponse)
+        const loginResponse = await fetchLogin({username: values.username, password: values.password})
+        console.log(loginResponse);
+        login(loginResponse)
+        navigate('/')
       } 
       // Normally this block will catch any errors if the user has already been registered
       // But in this case, no error will come up cause of we just simulate to 'add a new  user'
@@ -56,13 +58,13 @@ function Login() {
             <div>
                 <div>E-mail</div>
                 <input 
-                className= {`${formik.touched.email && formik.errors.email 
+                className= {`${formik.touched.username && formik.errors.username 
                   ? "border-red" :""}`}
-                name='email'
+                name='username'
                 type="text" 
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.email}
+                value={formik.values.username}
                 />
             </div>
             <div>
