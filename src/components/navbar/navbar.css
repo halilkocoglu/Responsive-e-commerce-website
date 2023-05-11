@@ -23,7 +23,13 @@
     margin-right: 2rem;
     font-weight: bold;
     font-size: 2rem;
-
+}
+.basket-logo a {
+    flex-direction: column;
+}
+.basket-logo a div {
+    font-size: x-small;
+    margin: 0 0  -1.45rem 0.9rem;
 }
 .right a {
     color: #fff;

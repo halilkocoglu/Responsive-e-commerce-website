@@ -5,12 +5,14 @@ import { SlBasket } from "react-icons/sl";
 import { useProductsContext } from '../../contexts/productsContext/ProductsContext';
 import { AiOutlineMenuFold } from "react-icons/ai";
 import { useAuthContext } from '../../contexts/authContext/AuthContext';
+import { useBasketContext } from '../../contexts/basketContext/BasketContext';
 
 function Navbar() {
     const [isActive , setIsActive] = useState(false);
     const [menuStyle, setMenuStyle] = useState("");
     const { setSelectedCategory } = useProductsContext();
     const { isLoggedIn, logout } = useAuthContext()
+    const { basketList } = useBasketContext()
     // console.log(isLoggedIn);
     useEffect( () => {
         isActive ? setMenuStyle("") : setMenuStyle("display-none")
@@ -35,7 +37,11 @@ function Navbar() {
         <div className='right'>
             <div className='basket-logo'>
                 <Link >
-                    <SlBasket />
+                    {
+                    basketList.length > 0 &&
+                    <div>{basketList.length}</div>
+                    }
+                    <SlBasket /> 
                 </Link>
             </div>
             {
@@ -80,7 +86,11 @@ function Navbar() {
                     </div>
                     <div className='basket-logo-menu menu'>
                         <Link >
-                        <span className='padding_right'>Basket</span> <SlBasket />
+                        <span className='padding_right'>Basket</span>
+                        {
+                            basketList.length > 0 && 
+                            <span>({basketList.length})</span>
+                        }
                         </Link>
                     </div>
                     <div className='menu'>
