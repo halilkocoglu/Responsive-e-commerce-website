@@ -10,7 +10,7 @@
 
 .cart-container_section {
     margin: 0 auto;
-    width: 90%;
+    width: 70%;
     border: 3px solid #fff;
     justify-content: space-between;
     text-align: center;
@@ -95,7 +95,7 @@
     .delete-button a{
         display: inline-block;
         justify-content: center;
-        width: 13rem;
+        width: 12rem;
         height: 1.2rem;
         text-align: center;
     }
