@@ -12,7 +12,7 @@ function Categories() {
             productsCategories.map((category,key) => {
                 return (
                     <div className='category-list' key={key}>
-                        <Link 
+                        <Link to={'/'}
                         onClick={() => {
                             setSelectedCategory(category);
                         }}>

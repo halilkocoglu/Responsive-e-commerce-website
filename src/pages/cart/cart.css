@@ -1,0 +1,113 @@
+.cart-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+.cart-container_section {
+    margin: 0 auto;
+    width: 90%;
+    border: 3px solid #fff;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.cart-container_cart-section {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem;
+    padding: 0.7rem;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+
+.cart-container_cart-section a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    text-align: left;
+}
+
+.cart-image {
+    display: flex;
+    flex-direction: row;
+}
+.cart-image img {
+    width: 125px;
+    height: 125px;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+.delete-button a{
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: red;
+    padding: 0.2rem 0.2rem 0.1rem;
+    color: #fff;
+}
+
+.cart-container_section-empty-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+    color: #000;
+    margin: 5rem 0;
+}
+
+.empty-cart-image {
+    display: flex;
+    margin-right: 2rem;
+}
+
+.empty-cart-image  img{
+    width: 200px;
+    height: 200px;
+}
+
+.total-info div {
+    margin: 1rem 1rem 1rem 2rem;
+    text-align: left;
+    
+}
+
+
+@media screen and (max-width: 550px) {
+    .cart-container_section {
+        margin: 0 auto;
+        width: 90%;
+        border: none;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    .cart-container_cart-section{
+        flex-direction: column;
+        align-items: center;
+    }
+    .cart-container_cart-section 
+    .delete-button a{
+        display: inline-block;
+        justify-content: center;
+        width: 13rem;
+        height: 1.2rem;
+        text-align: center;
+    }
+
+    .cart-image {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .empty-cart-image  img{
+        width: 12rem;
+        height: 12rem;
+    }
+}
