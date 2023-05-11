@@ -36,7 +36,7 @@ function Navbar() {
         </div>
         <div className='right'>
             <div className='basket-logo'>
-                <Link >
+                <Link to={"/cart"}>
                     {
                     basketList.length > 0 &&
                     <div>{basketList.length}</div>
@@ -85,7 +85,7 @@ function Navbar() {
                         to={"/"}>Home</Link>
                     </div>
                     <div className='basket-logo-menu menu'>
-                        <Link >
+                        <Link to={"/cart"}>
                         <span className='padding_right'>Basket</span>
                         {
                             basketList.length > 0 && 

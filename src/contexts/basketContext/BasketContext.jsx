@@ -9,7 +9,15 @@ const BasketProvider = ({ children }) => {
     const [basketList, setBasketList] = useState([])
 
     const addToBasket = (data) => {
-        setBasketList(( prev ) => [ ...prev,data ])
+        if(!basketList.includes(data)) {
+            return setBasketList(( prev ) => [ data, ...prev ])
+        } 
+        const filtered = basketList.filter( ( item ) => item.id !== data.id)
+        setBasketList(filtered)        
+    }
+    const deleteFromCart = (data) => {
+        const filtered = basketList.filter( ( item ) => item.id !== data.id)
+        setBasketList(filtered) 
     }
 
     useEffect(() => {
@@ -19,6 +27,7 @@ const BasketProvider = ({ children }) => {
     const values = {
         basketList,
         addToBasket,
+        deleteFromCart,
     }
     return <BasketContext.Provider value={values}>{children}</BasketContext.Provider>
 }

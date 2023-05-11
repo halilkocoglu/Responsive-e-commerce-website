@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react'
+import "./productDetail.css"
 import Navbar from '../../components/navbar/Navbar'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import SlideImage from '../../components/slideImage/SlideImage'
-import "./productDetail.css"
+import { useBasketContext } from '../../contexts/basketContext/BasketContext'
 
 function ProductDetail() {
     const {productId} = useParams()
     const [singleProductData, setSingleProductData] = useState([null]);
+    const {  addToBasket, basketList } = useBasketContext() 
+    const handleClick = (product) => {
+        addToBasket( product )
+    }
 
     useEffect (() => {
         axios.get(`https://dummyjson.com/products/${(productId)}`)
@@ -35,7 +40,15 @@ function ProductDetail() {
                     </div>
                     <div className='btn'>
                         <p>In Stock : {singleProductData.stock}</p>
-                        <button>Add to card</button>
+                        <button
+                            onClick= {() => handleClick(singleProductData)}
+                            >
+                                {   
+                                    basketList.includes(singleProductData)
+                                    ? "Remove from Cart"
+                                    : "Add to Cart"
+                                }
+                        </button>
                     </div>
                 </div>
             </div>

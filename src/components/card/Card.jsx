@@ -5,11 +5,12 @@ import { useProductsContext } from '../../contexts/productsContext/ProductsConte
 import { useBasketContext } from '../../contexts/basketContext/BasketContext'
 function Card({data}) {
     const {selectedCategory} = useProductsContext()
-    const {  addToBasket } = useBasketContext() 
+    const {  addToBasket, basketList } = useBasketContext() 
 
     const handleClick = (product) => {
         addToBasket( product )
     }
+
 
   return (
     <div className='card-container'>
@@ -37,7 +38,12 @@ function Card({data}) {
                                         <button
                                         onClick= {() => handleClick(product)}
                                         >
-                                            Add to Card</button>
+                                            {   
+                                                basketList.includes(product)
+                                                ? "Remove from Cart"
+                                                : "Add to Cart"
+                                            }
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +70,17 @@ function Card({data}) {
                             <div className='card-info'>
                                 <div>
                                     <div>${product.price}</div>
-                                    <div><button>Add to Card</button></div>
+                                    <div>
+                                    <button
+                                        onClick= {() => handleClick(product)}
+                                        >
+                                            {   
+                                                basketList.includes(product)
+                                                ? "Remove from Cart"
+                                                : "Add to Cart"
+                                            }
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             
