@@ -3,12 +3,27 @@ import { Link } from 'react-router-dom'
 import "./card.css"
 import { useProductsContext } from '../../contexts/productsContext/ProductsContext'
 import { useBasketContext } from '../../contexts/basketContext/BasketContext'
+import { useAuthContext } from "../../contexts/authContext/AuthContext"
+import { fetchAddCart } from "../../API"
+
 function Card({data}) {
     const {selectedCategory} = useProductsContext()
     const {  addToBasket, basketList } = useBasketContext() 
+    const { isLoggedIn, user } = useAuthContext()
 
-    const handleClick = (product) => {
+    const handleClick = async (product) => {
         addToBasket( product )
+        if(isLoggedIn) {
+            try {
+                const addCartReponse = await fetchAddCart({userId:user.id, products:[{id: product.id}]})
+                //dummy data add
+                console.log(addCartReponse);
+            } catch (e) {
+                console.log(e.response.data.message);
+            }
+        }
+
+        
     }
 
 

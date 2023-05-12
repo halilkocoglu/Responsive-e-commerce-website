@@ -1,5 +1,5 @@
 import axios from "axios"
-
+//Products
 const fetchAllProducts = (callback) => {
     axios.get('https://dummyjson.com/products')
     .then(res => res.data)
@@ -12,7 +12,7 @@ const fetchProductsCategories = (callback) => {
     .then(res => res.data)
     .then(data => callback(data))
 } 
-
+// Login and register
 const fetchRegister = async (input) => {
     const {data} = await axios.post('https://dummyjson.com/users/add',input)
     return data;
@@ -22,8 +22,21 @@ const fetchLogin = async (input) => {
     const {data} = await axios.post('https://dummyjson.com/auth/login',input)
     return data;
 } 
+// Cart 
+const fetchAddCart = async (input) => {
+    const {data} = await axios.post('https://dummyjson.com/carts/add',input);
+    return data;
+}
 
+const fetchDeleteCart = async (input) => {
+    const {data} = await axios.delete(`https://dummyjson.com/carts/${input}`);
+    return data;
+}
 
+const fetchGetCartOfUser = async (input) => {
+    const {data} = await axios.get(`https://dummyjson.com/carts/user/${input}`)
+    return data;
+}
 
 
 
@@ -32,4 +45,7 @@ export {
     fetchProductsCategories,
     fetchRegister,
     fetchLogin,
+    fetchAddCart,
+    fetchDeleteCart,
+    fetchGetCartOfUser,
 }
