@@ -6,7 +6,10 @@ import { createContext } from "react"
 const BasketContext = createContext()
 
 const BasketProvider = ({ children }) => {
-    const [basketList, setBasketList] = useState([])
+    const [basketList, setBasketList] = useState(
+        localStorage.getItem("cartItems") 
+        ? JSON.parse(localStorage.getItem("cartItems")) 
+        : [] )
 
     const addToBasket = (data) => {
         if(!basketList.includes(data)) {
@@ -21,6 +24,8 @@ const BasketProvider = ({ children }) => {
     }
 
     useEffect(() => {
+        localStorage.setItem("cartItems", JSON.stringify(basketList))
+        basketList.length === 0  && localStorage.removeItem("cartItems") 
         console.log(basketList);
     },[basketList])
 

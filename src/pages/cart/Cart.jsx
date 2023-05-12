@@ -1,18 +1,33 @@
 import React from 'react'
-import './cart.css'
-import Navbar from '../../components/navbar/Navbar'
-import { useBasketContext } from '../../contexts/basketContext/BasketContext'
-import cartImage from '../../assets/cart.png'
 import { Link } from 'react-router-dom'
+//components
+import Navbar from '../../components/navbar/Navbar'
+//style
+import './cart.css'
+import cartImage from '../../assets/cart.png'
 import { RiDeleteBin2Line } from 'react-icons/ri';
+//Context and API
+import { useBasketContext } from '../../contexts/basketContext/BasketContext'
+import { useAuthContext } from '../../contexts/authContext/AuthContext'
+import { fetchDeleteCart } from "../../API" 
 
 
 function Cart() {
     const { basketList, deleteFromCart } = useBasketContext()
+    const { isLoggedIn } = useAuthContext()
     let totalPrice = 0; 
 
-    const handleClick = (basket) => {
+    const handleClick = async (basket) => {
         deleteFromCart(basket)
+        if(isLoggedIn) {
+            try {
+                const addCartReponse = await fetchDeleteCart(basket.id);
+                //dummy data add
+                console.log(addCartReponse);
+            } catch (e) {
+                console.log(e.response.data.message);
+            }
+        }
     }
   return (
     <div className='cart-container'>
