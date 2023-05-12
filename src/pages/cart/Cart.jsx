@@ -21,9 +21,9 @@ function Cart() {
         deleteFromCart(basket)
         if(isLoggedIn) {
             try {
-                const addCartReponse = await fetchDeleteCart(basket.id);
-                //dummy data add
-                console.log(addCartReponse);
+                const deleteCartReponse = await fetchDeleteCart(basket.id);
+                //dummy data delete. You can see log (Deleted on)
+                console.log(deleteCartReponse);
             } catch (e) {
                 console.log(e.response.data.message);
             }

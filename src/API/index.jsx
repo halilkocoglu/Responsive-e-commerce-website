@@ -33,6 +33,10 @@ const fetchDeleteCart = async (input) => {
     return data;
 }
 
+const fetchGetCartOfUser = async (input) => {
+    const {data} = await axios.get(`https://dummyjson.com/carts/user/${input}`)
+    return data;
+}
 
 
 
@@ -43,4 +47,5 @@ export {
     fetchLogin,
     fetchAddCart,
     fetchDeleteCart,
+    fetchGetCartOfUser,
 }
