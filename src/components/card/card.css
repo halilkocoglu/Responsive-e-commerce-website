@@ -4,6 +4,7 @@
     width: 95%;
     /* overflow: hidden; */
 }
+
 .card {
     display: flex;
     justify-content: space-between;
@@ -12,7 +13,9 @@
     border: 3px solid #fff;
     border-radius: 5px;
     margin: 1rem;
+
 }
+
 /* DD5E98 */
 .card-img img {
     width: 100%;
@@ -20,60 +23,69 @@
     margin-bottom: 1rem;
     border-radius: 3px;
 }
+
 .card-body div {
+    color: #333;
     /* margin-bottom: 1rem; */
     padding: 0 1rem;
 }
-.card-title a div{
+
+.card-title a div {
     justify-content: center;
     align-items: center;
     text-align: center;
     padding-bottom: 0.5rem;
 }
+
 .card-title a {
     text-decoration: none;
     color: #fff;
 }
+
 .card-info div {
-    color: #fff;
+    color: #333;
     margin: 0.5rem;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .card-info button {
     cursor: pointer;
     background-color: #333;
     color: #fff;
     padding: 0.6rem;
     border-radius: 5px;
-    border:  none;
+    border: none;
 }
 
 @media screen and (max-width: 1160px) {
-    .card-container{
+    .card-container {
         grid-template-columns: auto auto auto;
     }
+
     .card-img img {
         height: 10rem;
     }
 }
+
 @media screen and (max-width: 960px) {
-    .card-container{
+    .card-container {
         grid-template-columns: auto auto;
     }
 }
+
 @media screen and (max-width: 478px) {
-    .card-container{
+    .card-container {
         display: flex;
         flex-direction: column;
         width: 260px;
         margin-left: auto;
     }
+
     .card {
         display: flex;
         flex-direction: column;
     }
 }
-
